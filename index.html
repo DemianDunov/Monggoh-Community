@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Monggoh</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:#0f172a;
+  color:#e2e8f0;
+}
+
+/* NAV */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:16px clamp(16px, 5vw, 40px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#020617;
+  z-index:1000;
+}
+
+nav a{
+  color:white;
+  margin-left:clamp(10px, 2vw, 20px);
+  text-decoration:none;
+  font-size:clamp(12px, 2.5vw, 14px);
+}
+
+/* LOGO */
+.home-logo{
+  width:clamp(80px, 20vw, 140px);
+  margin:20px 0;
+  border-radius:20px;
+  transition:0.3s;
+}
+
+.home-logo:hover{
+  transform:scale(1.05);
+}
+
+/* SECTION */
+section{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:clamp(80px, 12vh, 120px) 20px 40px;
+  text-align:center;
+}
+
+/* TEXT */
+section p{
+  max-width:700px;
+  text-align:justify;
+  line-height:1.7;
+  margin:10px auto;
+  font-size:clamp(13px, 3vw, 15px);
+  opacity:0.9;
+}
+
+/* TITLE */
+h2{
+  font-size:clamp(24px, 6vw, 50px);
+}
+
+/* MEMBER GRID */
+.members{
+  width:100%;
+  max-width:1000px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap:18px;
+  padding:20px;
+}
+
+/* CARD */
+.card{
+  width:100%;
+  max-width:150px;
+  aspect-ratio:3/4;
+  margin:auto;
+}
+
+/* FLIP */
+.inner{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:0.6s;
+}
+
+.card:hover .inner{
+  transform:rotateY(180deg);
+}
+
+.front,.back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;
+  border-radius:15px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:#1e293b;
+  padding:10px;
+}
+
+/* IMAGE */
+.front img{
+  width:60%;
+  max-width:80px;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  margin-bottom:10px;
+}
+
+/* BACK */
+.back{
+  transform:rotateY(180deg);
+  font-size:12px;
+  text-align:center;
+}
+
+/* LOGIN */
+#loginBox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#020617;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+}
+
+input,button{
+  margin:10px;
+  padding:10px;
+  width:clamp(180px, 60%, 250px);
+}
+
+/* ANIM */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.6s;
+}
+
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#020617;
+  font-size:clamp(12px, 3vw, 14px);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header>
+<h1>Monggoh</h1>
+<nav>
+<a onclick="scrollToSection('home')">Home</a>
+<a onclick="scrollToSection('about')">About</a>
+<a onclick="scrollToSection('member')">Member</a>
+</nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="home fade">
+<img src="img/monggoh.jpeg" class="home-logo">
+<h2>Monggoh Community</h2>
+<p>Sopan Santun • Kerjasama • Saling Menghormati</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade">
+<h2>About</h2>
+<p>
+Monggoh adalah sebuah komunitas yang dibangun atas dasar persahabatan sejati, di mana setiap anggotanya saling mengenal, menghargai, dan mendukung satu sama lain.<br><br>
+Di sini, tidak ada perbedaan yang menjadi batas—semua dipersatukan oleh rasa kebersamaan dan keinginan untuk tumbuh bersama.
+</p>
+
+<p>
+Di Monggoh, kita tidak hanya sekadar berkumpul, tetapi juga berbagi cerita, tawa, dan pengalaman.<br><br>
+Setiap momen yang dilalui, baik suka maupun duka, menjadi bagian dari perjalanan yang mempererat hubungan antar anggota.
+</p>
+<br>
+<p>
+Lebih dari itu, Monggoh adalah tempat di mana setiap orang bisa menjadi dirinya sendiri tanpa rasa takut atau ragu.<br><br>
+Lingkungan yang hangat dan suportif menjadikan komunitas ini sebagai ruang untuk berkembang, belajar, dan menemukan arti persahabatan yang sesungguhnya.
+</p>
+<br>
+<p>
+Pada akhirnya, Monggoh bukan hanya sebuah nama, melainkan sebuah ikatan.<br><br>
+Ikatan yang tidak mudah pudar oleh waktu, karena dibangun dari kepercayaan, loyalitas, dan kebersamaan yang nyata.
+</p>
+
+</section>
+
+<!-- MEMBER -->
+<section id="member" class="members fade">
+
+<div class="card">
+<div class="inner">
+<div class="front">
+<img src="img/janlow.jpeg">
+<h3>Janlow</h3>
+</div>
+<div class="back">
+<p>Hobby: Sport</p>
+<p>"Mangan ora teles, adus ora wareg."</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="inner">
+<div class="front">
+<img src="img/mikael.jpeg">
+<h3>mikael</h3>
+</div>
+<div class="back">
+<p>Hobby: Sport</p>
+<p>"Tetaplah ikhlas meski hati tidak tenang."</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="inner">
+<div class="front">
+<img src="img/cipa.jpeg">
+<h3>cipa</h3>
+</div>
+<div class="back">
+<p>Hobby: Tidur</p>
+<p>"Pas kebelet eek, semua pintu toilet terasa kayak pintu harapan"</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="inner">
+<div class="front">
+<img src="img/demian.jpeg">
+<h3>Demian Dunov</h3>
+</div>
+<div class="back">
+<p>Hobby: Pantau Market</p>
+<p>Pekerjaan: Investor</p>
+<p>"The Power Of Money"</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="inner">
+<div class="front">
+<img src="img/vyn.jpeg">
+<h3>vynlowl</h3>
+</div>
+<div class="back">
+<p>Hobby: Baking finallboss</p>
+<p>"mending bobo atau diboboin"</p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="inner">
+<div class="front">
+<img src="img/bintang.jpeg">
+<h3>Bintang</h3>
+</div>
+<div class="back">
+<p>Hobby: Baking</p>
+<p>"hidup kadang diatas kadang digidaw"</p>
+</div>
+</div>
+</div>
+
+</section>
+
+<footer>Contact: monggoh@email.com</footer>
+
+<script>
+/* LOGIN */
+function login(){
+let u=document.getElementById("user").value;
+let p=document.getElementById("pass").value;
+
+if(u==="admin" && p==="1234"){
+document.getElementById("loginBox").style.display="none";
+}else{
+document.getElementById("err").innerText="Wrong login";
+}
+}
+
+/* SCROLL */
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+/* ANIMATION */
+const els=document.querySelectorAll(".fade");
+window.addEventListener("scroll",()=>{
+els.forEach(e=>{
+if(e.getBoundingClientRect().top < window.innerHeight-100){
+e.classList.add("show");
+}
+});
+});
+</script>
+
+</body>
+</html>
